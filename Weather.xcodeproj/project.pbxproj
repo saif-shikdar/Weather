@@ -15,6 +15,8 @@
 		04BB461926D8153B00A309FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BB461726D8153B00A309FE /* LaunchScreen.storyboard */; };
 		04BB462426D8153C00A309FE /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB462326D8153C00A309FE /* WeatherTests.swift */; };
 		04BB462F26D8153C00A309FE /* WeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB462E26D8153C00A309FE /* WeatherUITests.swift */; };
+		04BB464326D8176700A309FE /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB464226D8176700A309FE /* MainCoordinator.swift */; };
+		04BB464726D8184300A309FE /* WeatherSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB464626D8184300A309FE /* WeatherSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		04BB462A26D8153C00A309FE /* WeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BB462E26D8153C00A309FE /* WeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUITests.swift; sourceTree = "<group>"; };
 		04BB463026D8153C00A309FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04BB464226D8176700A309FE /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		04BB464626D8184300A309FE /* WeatherSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,10 @@
 		04BB460B26D8153900A309FE /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				04BB464126D8175100A309FE /* Coordinator */,
+				04BB463E26D8166900A309FE /* Networking */,
+				04BB463D26D8163A00A309FE /* Utility */,
+				04BB463C26D8162F00A309FE /* Modules */,
 				04BB460C26D8153900A309FE /* AppDelegate.swift */,
 				04BB460E26D8153900A309FE /* SceneDelegate.swift */,
 				04BB461026D8153900A309FE /* ViewController.swift */,
@@ -126,6 +134,52 @@
 				04BB463026D8153C00A309FE /* Info.plist */,
 			);
 			path = WeatherUITests;
+			sourceTree = "<group>";
+		};
+		04BB463C26D8162F00A309FE /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				04BB464026D8169200A309FE /* WeatherDetails */,
+				04BB463F26D8167A00A309FE /* WeatherSearch */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		04BB463D26D8163A00A309FE /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		04BB463E26D8166900A309FE /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		04BB463F26D8167A00A309FE /* WeatherSearch */ = {
+			isa = PBXGroup;
+			children = (
+				04BB464626D8184300A309FE /* WeatherSearchViewController.swift */,
+			);
+			path = WeatherSearch;
+			sourceTree = "<group>";
+		};
+		04BB464026D8169200A309FE /* WeatherDetails */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WeatherDetails;
+			sourceTree = "<group>";
+		};
+		04BB464126D8175100A309FE /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				04BB464226D8176700A309FE /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +313,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				04BB461126D8153900A309FE /* ViewController.swift in Sources */,
+				04BB464326D8176700A309FE /* MainCoordinator.swift in Sources */,
+				04BB464726D8184300A309FE /* WeatherSearchViewController.swift in Sources */,
 				04BB460D26D8153900A309FE /* AppDelegate.swift in Sources */,
 				04BB460F26D8153900A309FE /* SceneDelegate.swift in Sources */,
 			);
