@@ -9,19 +9,115 @@
     </dependencies>
     <scenes>
         <!--Weather Search View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="SC3-a8-Xhg">
             <objects>
-                <viewController storyboardIdentifier="WeatherSearchViewController" id="BYZ-38-t0r" customClass="WeatherSearchViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController storyboardIdentifier="WeatherSearchViewController" id="BYl-o4-vyn" customClass="WeatherSearchViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eNT-f8-x3d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search By City Name" translatesAutoresizingMaskIntoConstraints="NO" id="UyC-fj-YVd">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="alQ-4a-Y5q"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYl-o4-vyn" id="CE0-0y-yy5"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UvQ-vb-5mJ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="100" id="qO7-nL-ais" customClass="WeatherTableViewCell" customModule="Weather" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qO7-nL-ais" id="gVg-Xa-NS2">
+                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6xr-e8-Jbx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="XVF-Ve-ja7"/>
+                                                        <constraint firstAttribute="height" constant="100" id="arr-XB-87F"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cwO-mk-e9c">
+                                                    <rect key="frame" x="120" y="25" width="240" height="50"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drm-rF-gq0">
+                                                            <rect key="frame" x="0.0" y="0.0" width="56" height="12.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOy-RI-2yy">
+                                                            <rect key="frame" x="0.0" y="17.5" width="44.5" height="9.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3LW-Vw-FUg" userLabel="Spacer">
+                                                            <rect key="frame" x="0.0" y="32" width="240" height="18"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        </view>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jx0-tj-xCO">
+                                                    <rect key="frame" x="374.5" y="50" width="0.0" height="0.0"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Jx0-tj-xCO" firstAttribute="centerY" secondItem="gVg-Xa-NS2" secondAttribute="centerY" id="AKs-tA-o4U"/>
+                                                <constraint firstAttribute="trailing" secondItem="Jx0-tj-xCO" secondAttribute="trailing" constant="10" id="GKH-6x-c1F"/>
+                                                <constraint firstItem="cwO-mk-e9c" firstAttribute="top" secondItem="gVg-Xa-NS2" secondAttribute="top" constant="25" id="LpT-O6-bAN"/>
+                                                <constraint firstItem="cwO-mk-e9c" firstAttribute="leading" secondItem="6xr-e8-Jbx" secondAttribute="trailing" constant="20" id="Rm0-r1-c0l"/>
+                                                <constraint firstItem="6xr-e8-Jbx" firstAttribute="top" secondItem="gVg-Xa-NS2" secondAttribute="top" id="SRW-2w-eDB"/>
+                                                <constraint firstItem="Jx0-tj-xCO" firstAttribute="leading" secondItem="cwO-mk-e9c" secondAttribute="trailing" constant="14.5" id="W83-QJ-gFb"/>
+                                                <constraint firstItem="6xr-e8-Jbx" firstAttribute="leading" secondItem="gVg-Xa-NS2" secondAttribute="leading" id="fuv-1f-35H"/>
+                                                <constraint firstItem="cwO-mk-e9c" firstAttribute="centerY" secondItem="gVg-Xa-NS2" secondAttribute="centerY" id="tUg-7J-mAf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cityName" destination="Drm-rF-gq0" id="94K-HZ-DiS"/>
+                                            <outlet property="temprature" destination="Jx0-tj-xCO" id="MmX-Xl-eAk"/>
+                                            <outlet property="wDesc" destination="gOy-RI-2yy" id="Vr3-PU-Bvq"/>
+                                            <outlet property="weatherImageView" destination="6xr-e8-Jbx" id="sTJ-1z-wvG"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYl-o4-vyn" id="BTO-hj-Vlp"/>
+                                    <outlet property="delegate" destination="BYl-o4-vyn" id="fK8-Jr-N2l"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ui5-aD-VMi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UvQ-vb-5mJ" firstAttribute="leading" secondItem="eNT-f8-x3d" secondAttribute="leading" id="09d-K1-gkQ"/>
+                            <constraint firstAttribute="trailing" secondItem="UyC-fj-YVd" secondAttribute="trailing" id="27P-Ke-LzK"/>
+                            <constraint firstAttribute="trailing" secondItem="UvQ-vb-5mJ" secondAttribute="trailing" id="C0J-o0-JLm"/>
+                            <constraint firstItem="UyC-fj-YVd" firstAttribute="top" secondItem="Ui5-aD-VMi" secondAttribute="top" id="CjD-LZ-ptc"/>
+                            <constraint firstItem="UyC-fj-YVd" firstAttribute="leading" secondItem="Ui5-aD-VMi" secondAttribute="leading" id="TjV-2D-tak"/>
+                            <constraint firstItem="UvQ-vb-5mJ" firstAttribute="top" secondItem="UyC-fj-YVd" secondAttribute="bottom" id="Xx6-81-yDa"/>
+                            <constraint firstAttribute="bottom" secondItem="UvQ-vb-5mJ" secondAttribute="bottom" id="qEG-Hy-0Cf"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="46X-fX-BfZ"/>
+                    <connections>
+                        <outlet property="searchBar" destination="UyC-fj-YVd" id="gX0-co-u1E"/>
+                        <outlet property="tableView" destination="UvQ-vb-5mJ" id="kL8-Pp-3qi"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MuH-zq-Ncn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="94"/>
+            <point key="canvasLocation" x="540.57971014492762" y="764.73214285714278"/>
         </scene>
     </scenes>
     <resources>

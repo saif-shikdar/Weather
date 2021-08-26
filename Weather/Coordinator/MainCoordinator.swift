@@ -22,7 +22,10 @@ class MainCoordinator: Coordinator {
     
     func start() {
         let sb = UIStoryboard(name:"Main", bundle:nil)
-        let vc = sb.instantiateViewController(withIdentifier:"WeatherSearchViewController")
+        guard let vc = sb.instantiateViewController(withIdentifier:"WeatherSearchViewController") as? WeatherSearchViewController else { return }
+        
+        vc.viewModel = WeatherSearchViewModel()
+        vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
     }
 }
