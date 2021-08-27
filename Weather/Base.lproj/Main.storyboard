@@ -318,10 +318,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="HighTempLabel" destination="b0G-qi-gKo" id="1d2-Hk-ybw"/>
-                        <outlet property="LowTempLabel" destination="8oN-Uy-FUd" id="lGx-iB-MKr"/>
                         <outlet property="currentTemp" destination="QGY-hF-9lm" id="zn1-mi-ivz"/>
+                        <outlet property="highTempLabel" destination="b0G-qi-gKo" id="LED-jB-j1K"/>
                         <outlet property="locationLabel" destination="9yY-4q-kTi" id="2AZ-zO-ShH"/>
+                        <outlet property="lowTempLabel" destination="8oN-Uy-FUd" id="dRp-fv-KzP"/>
                         <outlet property="tableView" destination="3rT-D3-wYz" id="Pgt-mX-KFx"/>
                         <outlet property="weatherDesc" destination="ghc-uT-rFn" id="vpm-CY-lcZ"/>
                     </connections>

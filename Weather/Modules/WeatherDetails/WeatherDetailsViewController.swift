@@ -11,8 +11,8 @@ import Combine
 class WeatherDetailsViewController: UIViewController {
     
     @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var LowTempLabel: UILabel!
-    @IBOutlet weak var HighTempLabel: UILabel!
+    @IBOutlet weak var lowTempLabel: UILabel!
+    @IBOutlet weak var highTempLabel: UILabel!
     @IBOutlet weak var currentTemp: UILabel!
     @IBOutlet weak var weatherDesc: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -30,9 +30,9 @@ class WeatherDetailsViewController: UIViewController {
         weatherDesc.text = viewModel.weatherDetails.descripton
         currentTemp.text = String(format:"%0.2f\u{00B0}",viewModel.weatherDetails.temprature.KelvinToDegreeCelcius())
 
-        HighTempLabel.text = String(format:"H:%0.2f\u{00B0}",viewModel.weatherDetails.tempMax.KelvinToDegreeCelcius())
+        highTempLabel.text = String(format:"H:%0.2f\u{00B0}",viewModel.weatherDetails.tempMax.KelvinToDegreeCelcius())
 
-        LowTempLabel.text = String(format:"L:%0.2f\u{00B0}",viewModel.weatherDetails.tempMin.KelvinToDegreeCelcius())
+        lowTempLabel.text = String(format:"L:%0.2f\u{00B0}",viewModel.weatherDetails.tempMin.KelvinToDegreeCelcius())
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,8 +90,6 @@ extension WeatherDetailsViewController: UITableViewDataSource {
         }
        
     }
-    
-    
 }
 
 

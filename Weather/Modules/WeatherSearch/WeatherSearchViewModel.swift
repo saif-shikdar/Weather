@@ -34,15 +34,11 @@ class WeatherSearchViewModel: WeatherSearchViewModelType {
         self.repository = repository
     }
     
-    
     func getWeather(_ location:String?) {
-        
         guard  let location = location else {
             return
         }
-        
         repository.search(location:location, modelType:WeatherResponse.self) { result in
-            
             switch result {
             case .success(let response):
                 print(response)
@@ -57,23 +53,22 @@ class WeatherSearchViewModel: WeatherSearchViewModelType {
     }
     
     func getWeatherDetails(for index:Int)-> WeatherDetails? {
-        
         guard index >= 0 , index < searchResults.count else {
             return nil
         }
-        
         let weatherResponse = searchResults[index]
-        return WeatherDetails(cityName:weatherResponse.name, type:weatherResponse.weather?.first?.main, descripton:weatherResponse.weather?.first?.weatherDescription ?? "",
+        guard let weather = weatherResponse.weather.first else { return nil}
+        return WeatherDetails(cityName:weatherResponse.name, type:weather.main,
+            descripton:weather.weatherDescription,
             temprature: weatherResponse.main.temp,
             tempMax: weatherResponse.main.tempMax,
             tempMin: weatherResponse.main.tempMin,
-            imageName: weatherImageName(type: weatherResponse.weather?.first?.main ?? ""),
+            imageName: weatherImageName(type: weather.main),
             lat: weatherResponse.coord.lat,
             long: weatherResponse.coord.lon)
     }
     
     private func weatherImageName(type:String)-> String {
-        
         print(type)
         switch type {
         case "clear" :
