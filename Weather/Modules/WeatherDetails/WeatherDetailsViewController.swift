@@ -37,7 +37,7 @@ class WeatherDetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.fetchWeatherForCastFor()
+        viewModel.fetchWeatherForCast()
     }
     
     private func configureDataBinding() {

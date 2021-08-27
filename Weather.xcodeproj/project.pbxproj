@@ -40,6 +40,7 @@
 		04BB467526D8773600A309FE /* CurrentWeatherDetailsFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = 04BB467426D8773600A309FE /* CurrentWeatherDetailsFailure.json */; };
 		04BB467726D8775800A309FE /* HourlyWeeklyFrocastsSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 04BB467626D8775800A309FE /* HourlyWeeklyFrocastsSuccess.json */; };
 		04BB467926D8779300A309FE /* HourleyWeeklyForcastsFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = 04BB467826D8779300A309FE /* HourleyWeeklyForcastsFailure.json */; };
+		04BB467D26D8896200A309FE /* WeatherDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB467C26D8896200A309FE /* WeatherDetailsViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		04BB467426D8773600A309FE /* CurrentWeatherDetailsFailure.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CurrentWeatherDetailsFailure.json; sourceTree = "<group>"; };
 		04BB467626D8775800A309FE /* HourlyWeeklyFrocastsSuccess.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HourlyWeeklyFrocastsSuccess.json; sourceTree = "<group>"; };
 		04BB467826D8779300A309FE /* HourleyWeeklyForcastsFailure.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HourleyWeeklyForcastsFailure.json; sourceTree = "<group>"; };
+		04BB467C26D8896200A309FE /* WeatherDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 				04BB467126D876F000A309FE /* Responses */,
 				04BB466F26D8768000A309FE /* MockWeatherRepository.swift */,
 				04BB462326D8153C00A309FE /* WeatherSearchViewModelTests.swift */,
+				04BB467C26D8896200A309FE /* WeatherDetailsViewModelTests.swift */,
 				04BB462526D8153C00A309FE /* Info.plist */,
 			);
 			path = WeatherTests;
@@ -431,6 +434,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04BB467D26D8896200A309FE /* WeatherDetailsViewModelTests.swift in Sources */,
 				04BB467026D8768000A309FE /* MockWeatherRepository.swift in Sources */,
 				04BB462426D8153C00A309FE /* WeatherSearchViewModelTests.swift in Sources */,
 			);

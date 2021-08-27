@@ -41,12 +41,10 @@ class WeatherSearchViewModel: WeatherSearchViewModelType {
         repository.search(location:location, modelType:WeatherResponse.self) { result in
             switch result {
             case .success(let response):
-                print(response)
                 self.weatherResponse = response
                 self.searchResults.append(response)
                 
             case .failure(let error):
-                print(error)
                 self.errorMessage = error.localizedDescription
             }
         }

@@ -18,10 +18,9 @@ protocol WeatherDetailsViewModelType {
     var weatherDetails:WeatherDetails { get }
     var filterOptions:[WeatherForCastType] { get }
     var weatherForCastBinding: Published<WeatherForcast?>.Publisher { get }
-    func fetchWeatherForCastFor()
+    func fetchWeatherForCast()
     func getDailyForcast(for index:Int)-> DailyForCastDetails?
     func getHourlyForcast()-> [HourlyForCastDetails]
-
 }
 
 class WeatherDetailsViewModel: WeatherDetailsViewModelType {
@@ -47,31 +46,27 @@ class WeatherDetailsViewModel: WeatherDetailsViewModelType {
     
     private var repository:WeatherRepositoryService
     var weatherDetails:WeatherDetails
-    
-    var forCast:[WeatherForCastType] = []
-    
+        
     init(repository:WeatherRepositoryService = WeatherRepository(), weatherDetails:WeatherDetails) {
         self.repository = repository
         self.weatherDetails = weatherDetails
     }
     
-    func fetchWeatherForCastFor() {
-       
-        repository.searchWeatherForcast(lat:"\(weatherDetails.lat)", long: "\(weatherDetails.long)", exclude:"", modelType:WeatherForcast.self) { result in
+    func fetchWeatherForCast() {
+        repository.searchWeatherForcast(lat:"\(weatherDetails.lat)", long: "\(weatherDetails.long)", exclude:"", modelType:WeatherForcast.self) { [weak self] result in
             
             switch result {
             case .success(let response):
-                print(response)
-                self.weatherForcast = response
+                self?.weatherForcast = response
             case .failure(let error):
-                print(error)
+                self?.weatherForcast = nil
+                self?.errorMessage = error.localizedDescription
             }
         }
     }
     
     func getDailyForcast(for index: Int)-> DailyForCastDetails? {
-        
-        guard  let dailyForCasts = weatherForcast?.daily else {
+        guard let dailyForCasts = weatherForcast?.daily,  index >= 0 , index < dailyForCasts.count else {
             return nil
         }
         let daily = dailyForCasts[index]
@@ -86,7 +81,6 @@ class WeatherDetailsViewModel: WeatherDetailsViewModelType {
             return []
         }
         return hourlyForCasts.map { HourlyForCastDetails(date: Date().getHr(milliSec:($0.dt!)), temp: String(format:"%0.2f\u{00B0}",$0.temp.KelvinToDegreeCelcius()))}
-        
     }
     
 }
