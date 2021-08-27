@@ -72,13 +72,13 @@ class WeatherSearchViewModel: WeatherSearchViewModelType {
         switch type {
         case "clear" :
             return "ClearAndSunny"
-        case "a" :
+        case "CloudyOverNight" :
             return "CloudyOverNight"
         case "Haze" :
             return "GustyWinds"
-        case "c" :
+        case "snow" :
             return "HailStorms"
-        case "d" :
+        case "raining" :
             return "HeavyRain"
         case "Clouds" :
             return "PartlyCloudy"
