@@ -67,7 +67,8 @@ extension WeatherSearchViewController: UITableViewDataSource {
 
 extension WeatherSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+        guard  let weatherDetails = viewModel.getWeatherDetails(for: indexPath.row) else { return }
+        coordinator.gotoWeatherForCast(weatherDetails: weatherDetails)
     }
 }
 
@@ -75,6 +76,7 @@ extension WeatherSearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         viewModel.getWeather(searchBar.text)
+    
     }
 
 }
