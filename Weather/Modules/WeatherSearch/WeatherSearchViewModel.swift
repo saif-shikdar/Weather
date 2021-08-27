@@ -10,6 +10,7 @@ import Foundation
 protocol WeatherSearchViewModelType {
     var numberOfItems:Int { get }
     var weatherBinding: Published<WeatherResponse?>.Publisher { get }
+    var errorBinding: Published<String?>.Publisher { get }
     func getWeather(_ location:String?)
     func getWeatherDetails(for index:Int)-> WeatherDetails?
 }

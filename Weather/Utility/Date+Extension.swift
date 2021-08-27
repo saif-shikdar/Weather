@@ -8,33 +8,24 @@
 import Foundation
 
 extension Date {
-    func getDate(milliSec:Int)-> String {
+   
+    static func getDate(milliSec:Int, format:String)-> String {
         let date = Date(timeIntervalSince1970: (Double(milliSec) ))
-        return date.getString()
-    }
-    func getHr(milliSec:Int)-> String {
-        let date = Date(timeIntervalSince1970: (Double(milliSec) ))
-        return date.getHrString()
+        return date.getDateString(for: format)
     }
     
-    func getString()->String {
-
-        // Create Date Formatter
-        let dateFormatter = DateFormatter()
-
-        // Set Date Format
-        dateFormatter.dateFormat = "EEEE-MM/dd/YYYY"
-
-        // Convert Date to String
-      return dateFormatter.string(from: self)
+    static func getHr(milliSec:Int, format:String)-> String {
+        let date = Date(timeIntervalSince1970: (Double(milliSec) ))
+        return date.getDateString(for: format)
     }
-    func getHrString()->String {
+    
+    func getDateString(for format:String)-> String {
 
         // Create Date Formatter
         let dateFormatter = DateFormatter()
 
         // Set Date Format
-        dateFormatter.dateFormat = "hh:mm"
+        dateFormatter.dateFormat = format //"EEEE-MM/dd/YYYY"
 
         // Convert Date to String
       return dateFormatter.string(from: self)

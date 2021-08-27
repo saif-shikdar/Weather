@@ -41,6 +41,9 @@
 		04BB467726D8775800A309FE /* HourlyWeeklyFrocastsSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 04BB467626D8775800A309FE /* HourlyWeeklyFrocastsSuccess.json */; };
 		04BB467926D8779300A309FE /* HourleyWeeklyForcastsFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = 04BB467826D8779300A309FE /* HourleyWeeklyForcastsFailure.json */; };
 		04BB467D26D8896200A309FE /* WeatherDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB467C26D8896200A309FE /* WeatherDetailsViewModelTests.swift */; };
+		04BB467F26D89AEB00A309FE /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB467E26D89AEB00A309FE /* DateExtensionTests.swift */; };
+		04BB468126D89F1800A309FE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB468026D89F1800A309FE /* Constants.swift */; };
+		04BB468326D8B08900A309FE /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB468226D8B08900A309FE /* ViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +104,9 @@
 		04BB467626D8775800A309FE /* HourlyWeeklyFrocastsSuccess.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HourlyWeeklyFrocastsSuccess.json; sourceTree = "<group>"; };
 		04BB467826D8779300A309FE /* HourleyWeeklyForcastsFailure.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HourleyWeeklyForcastsFailure.json; sourceTree = "<group>"; };
 		04BB467C26D8896200A309FE /* WeatherDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		04BB467E26D89AEB00A309FE /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
+		04BB468026D89F1800A309FE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		04BB468226D8B08900A309FE /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,9 +157,9 @@
 		04BB460B26D8153900A309FE /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				04BB463E26D8166900A309FE /* Networking */,
 				04BB464826D81A8300A309FE /* Repository */,
 				04BB464126D8175100A309FE /* Coordinator */,
-				04BB463E26D8166900A309FE /* Networking */,
 				04BB463D26D8163A00A309FE /* Utility */,
 				04BB463C26D8162F00A309FE /* Modules */,
 				04BB460C26D8153900A309FE /* AppDelegate.swift */,
@@ -173,6 +179,7 @@
 				04BB466F26D8768000A309FE /* MockWeatherRepository.swift */,
 				04BB462326D8153C00A309FE /* WeatherSearchViewModelTests.swift */,
 				04BB467C26D8896200A309FE /* WeatherDetailsViewModelTests.swift */,
+				04BB467E26D89AEB00A309FE /* DateExtensionTests.swift */,
 				04BB462526D8153C00A309FE /* Info.plist */,
 			);
 			path = WeatherTests;
@@ -201,6 +208,8 @@
 			children = (
 				04BB465F26D8202C00A309FE /* Double+Extension.swift */,
 				04BB466126D8204400A309FE /* Date+Extension.swift */,
+				04BB468026D89F1800A309FE /* Constants.swift */,
+				04BB468226D8B08900A309FE /* ViewController+Extension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -219,8 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				04BB464626D8184300A309FE /* WeatherSearchViewController.swift */,
-				04BB464F26D81B5600A309FE /* WeatherResponse.swift */,
 				04BB465526D81C8700A309FE /* WeatherSearchViewModel.swift */,
+				04BB464F26D81B5600A309FE /* WeatherResponse.swift */,
 				04BB465726D81CC200A309FE /* WeatherDetails.swift */,
 				04BB465926D81E3200A309FE /* WeatherTableViewCell.swift */,
 			);
@@ -417,10 +426,12 @@
 				04BB465626D81C8700A309FE /* WeatherSearchViewModel.swift in Sources */,
 				04BB465E26D8200000A309FE /* WeatherForcast.swift in Sources */,
 				04BB465226D81BE200A309FE /* BaseRepository.swift in Sources */,
+				04BB468126D89F1800A309FE /* Constants.swift in Sources */,
 				04BB466226D8204400A309FE /* Date+Extension.swift in Sources */,
 				04BB464A26D81AB900A309FE /* NetworkManager.swift in Sources */,
 				04BB464E26D81AFE00A309FE /* DecodeJson.swift in Sources */,
 				04BB466A26D821C400A309FE /* DailyTableViewCell.swift in Sources */,
+				04BB468326D8B08900A309FE /* ViewController+Extension.swift in Sources */,
 				04BB460D26D8153900A309FE /* AppDelegate.swift in Sources */,
 				04BB466E26D8224A00A309FE /* HorlyCollectionViewCell.swift in Sources */,
 				04BB465826D81CC200A309FE /* WeatherDetails.swift in Sources */,
@@ -435,6 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04BB467D26D8896200A309FE /* WeatherDetailsViewModelTests.swift in Sources */,
+				04BB467F26D89AEB00A309FE /* DateExtensionTests.swift in Sources */,
 				04BB467026D8768000A309FE /* MockWeatherRepository.swift in Sources */,
 				04BB462426D8153C00A309FE /* WeatherSearchViewModelTests.swift in Sources */,
 			);

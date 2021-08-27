@@ -18,6 +18,7 @@ protocol WeatherDetailsViewModelType {
     var weatherDetails:WeatherDetails { get }
     var filterOptions:[WeatherForCastType] { get }
     var weatherForCastBinding: Published<WeatherForcast?>.Publisher { get }
+    var errorBinding: Published<String?>.Publisher { get }
     func fetchWeatherForCast()
     func getDailyForcast(for index:Int)-> DailyForCastDetails?
     func getHourlyForcast()-> [HourlyForCastDetails]
@@ -71,16 +72,16 @@ class WeatherDetailsViewModel: WeatherDetailsViewModelType {
         }
         let daily = dailyForCasts[index]
         
-        let date = Date().getDate(milliSec:(daily.dt!))
+        let date = Date.getDate(milliSec:(daily.dt!), format: Constatns.dayDateFormat)
         
-        return  DailyForCastDetails(date:date, tempHigh:String(format:"%0.2f\u{00B0}",daily.temp.max.KelvinToDegreeCelcius()), tempLow: String(format:"%0.2f\u{00B0}",daily.temp.min.KelvinToDegreeCelcius()))
+        return  DailyForCastDetails(date:date, tempHigh:String(format:"%0.2f\(Constatns.centigrade)",daily.temp.max.KelvinToDegreeCelcius()), tempLow: String(format:"%0.2f\(Constatns.centigrade)",daily.temp.min.KelvinToDegreeCelcius()))
     }
     
     func getHourlyForcast() -> [HourlyForCastDetails] {
         guard  let hourlyForCasts = weatherForcast?.hourly else {
             return []
         }
-        return hourlyForCasts.map { HourlyForCastDetails(date: Date().getHr(milliSec:($0.dt!)), temp: String(format:"%0.2f\u{00B0}",$0.temp.KelvinToDegreeCelcius()))}
+        return hourlyForCasts.map { HourlyForCastDetails(date: Date.getHr(milliSec:($0.dt!), format: Constatns.hourlyDateFormat), temp: String(format:"%0.2f\(Constatns.centigrade)",$0.temp.KelvinToDegreeCelcius()))}
     }
     
 }

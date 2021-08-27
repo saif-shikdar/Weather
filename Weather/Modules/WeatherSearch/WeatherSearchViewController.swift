@@ -30,7 +30,6 @@ class WeatherSearchViewController: UIViewController {
 
     }
     
-    
     private func configureDataBinding() {
         viewModel
             .weatherBinding
@@ -38,10 +37,18 @@ class WeatherSearchViewController: UIViewController {
             .receive(on: RunLoop.main).sink {[weak self] _ in
                 self?.tableView.reloadData()
             }.store(in: &cancellabel)
+        
+        viewModel
+            .errorBinding
+            .dropFirst()
+            .receive(on: RunLoop.main).sink {[weak self] _ in
+                self?.showAlert()
+            }.store(in: &cancellabel)
     }
 }
 
 extension WeatherSearchViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfItems
     }
@@ -53,7 +60,8 @@ extension WeatherSearchViewController: UITableViewDataSource {
         
         if let weatherDetails = viewModel.getWeatherDetails(for: indexPath.row) {
             cell.cityName.text =  weatherDetails.cityName
-            cell.temprature.text = "\(String(describing:weatherDetails.temprature ))"
+            
+            cell.temprature.text = "\(String(format:"%0.2f\(Constatns.centigrade)",weatherDetails.temprature.KelvinToDegreeCelcius()))"
         
             cell.weatherImageView.image = UIImage(named:weatherDetails.imageName)
             cell.wDesc.text = weatherDetails.descripton
@@ -61,8 +69,6 @@ extension WeatherSearchViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
 }
 
 extension WeatherSearchViewController: UITableViewDelegate {
@@ -73,10 +79,7 @@ extension WeatherSearchViewController: UITableViewDelegate {
 }
 
 extension WeatherSearchViewController: UISearchBarDelegate {
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         viewModel.getWeather(searchBar.text)
-    
     }
-
 }

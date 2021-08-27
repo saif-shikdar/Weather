@@ -16,6 +16,9 @@ protocol WeatherRepositoryService {
 
 class WeatherRepository:BaseRepository, WeatherRepositoryService, DecodeJson {
     
+    /*
+        @Desc: this function will get current weather details based upon location searched
+    */
     func search<T>(location: String, modelType: T.Type, completionHandler: @escaping Completion<T>) where T : Decodable {
         
         networkManager.run(baseUrl: EndPoint.baseUrl, path: APIPath.weather.rawValue, params: ["q":location, "appid":EndPoint.appId], requestType:RequestType.get) {[weak self] data, error in
@@ -34,6 +37,9 @@ class WeatherRepository:BaseRepository, WeatherRepositoryService, DecodeJson {
         }
     }
     
+    /*
+        @Desc: this function will get hourly, next 7 days forcast for search lattitude and longitude
+    */
     func searchWeatherForcast<T>(lat: String, long: String, exclude: String, modelType: T.Type, completionHandler: @escaping Completion<T>) where T : Decodable {
         
         networkManager.run(baseUrl: EndPoint.baseUrl, path: APIPath.onecall.rawValue, params: ["lat":lat, "lon":long,"exclude":exclude, "appid":EndPoint.appId], requestType:RequestType.get) {[weak self] data, error in

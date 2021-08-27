@@ -28,11 +28,11 @@ class WeatherDetailsViewController: UIViewController {
         
         locationLabel.text = viewModel.weatherDetails.cityName
         weatherDesc.text = viewModel.weatherDetails.descripton
-        currentTemp.text = String(format:"%0.2f\u{00B0}",viewModel.weatherDetails.temprature.KelvinToDegreeCelcius())
+        currentTemp.text = String(format:"%0.2f\(Constatns.centigrade)",viewModel.weatherDetails.temprature.KelvinToDegreeCelcius())
 
-        highTempLabel.text = String(format:"H:%0.2f\u{00B0}",viewModel.weatherDetails.tempMax.KelvinToDegreeCelcius())
+        highTempLabel.text = String(format:"H:%0.2f\(Constatns.centigrade)",viewModel.weatherDetails.tempMax.KelvinToDegreeCelcius())
 
-        lowTempLabel.text = String(format:"L:%0.2f\u{00B0}",viewModel.weatherDetails.tempMin.KelvinToDegreeCelcius())
+        lowTempLabel.text = String(format:"L:%0.2f\(Constatns.centigrade)",viewModel.weatherDetails.tempMin.KelvinToDegreeCelcius())
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +46,13 @@ class WeatherDetailsViewController: UIViewController {
             .dropFirst()
             .receive(on: RunLoop.main).sink {[weak self] _ in
                 self?.tableView.reloadData()
+            }.store(in: &cancellabel)
+        
+        viewModel
+            .errorBinding
+            .dropFirst()
+            .receive(on: RunLoop.main).sink {[weak self] _ in
+                self?.showAlert()
             }.store(in: &cancellabel)
     }
 }
